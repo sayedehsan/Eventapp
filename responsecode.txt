@@ -1,0 +1,3 @@
+400 = Validation Error
+401 = Email Not Found
+402 = Password Not Matched
