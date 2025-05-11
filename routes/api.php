@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIAuthController;
+use App\Http\Controllers\EventController;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\User;
 
@@ -18,4 +19,12 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'auth'], function () {
     Route::get('/logout', [ApiAuthController::class, 'logout']);
     Route::get('/refresh', [ApiAuthController::class, 'refresh']);
     Route::get('/profile', [ApiAuthController::class, 'userProfile']);
+});
+
+Route::group(['middleware'=> 'auth:api'], function () {
+    Route::get('/events', [EventController::class, 'index']);
+    Route::post('/events', [EventController::class, 'store']);
+    Route::get('/events/{id}', [EventController::class, 'show']);
+    Route::put('/events/{id}', [EventController::class, 'update']);
+    Route::delete('/events/{id}', [EventController::class, 'destroy']);
 });

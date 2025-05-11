@@ -1,3 +1,8 @@
 400 = Validation Error
 401 = Email Not Found
 402 = Password Not Matched
+405 = Data Not Found
+
+200= Data retrived
+201= success input
+205= Empty_Data
